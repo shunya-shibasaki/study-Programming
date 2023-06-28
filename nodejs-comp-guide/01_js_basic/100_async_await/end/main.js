@@ -11,7 +11,7 @@ async function init() {
             }, 2000);
         })
             console.log(result);
-    } catch(e) {
+    } catch(e) { //例外処理を行う記法
         console.log('catchが実行', e)
     }
     

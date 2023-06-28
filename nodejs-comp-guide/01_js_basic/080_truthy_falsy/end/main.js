@@ -9,7 +9,7 @@ false
 "" (空文字)
 null
 undefined
-NaN (Not a Number)
+NaN (Not a Number) 数値に変換できない
 */
 
 const a = 0;
@@ -22,15 +22,17 @@ console.log(Boolean(truthy));
 console.log(Boolean(falsy));
 
 // 論理積 (&&) について
+// falsyがあればfalsyを返す。なければtruthyを返す。
 const resultA = "" && "foo";
 const resultB = 2 && 1 && 0 && 3;
 const resultC = "foo" && 4;
 
-// console.log(resultA);
-// console.log(resultB);
-// console.log(resultC);
+console.log(resultA);
+console.log(resultB);
+console.log(resultC);
 
 // 理論和 (||) について
+// truthyがあればtruthyを返す。全てなければ一番右の値を返す。
 const resultD = "" || "foo";
 const resultE = 0 || 2 || 0;
 const resultF = "foo" || 4;

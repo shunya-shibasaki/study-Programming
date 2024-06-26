@@ -7,6 +7,12 @@
         {{ user.id }}, {{ user.name }}
       </li>
     </ul>
+    <div>
+      <h1>{{ 'stor' }}: {{ title }}</h1>
+      <button @click="titleState.changeTitle('Hello Nuxt3!')">
+        changeClick
+      </button>
+    </div>
   </div>
 </template>
 
@@ -16,4 +22,8 @@
  if (error.value) {
    throw createError({ statusCode: 404, statusMessage: 'page not found!!!!'})
    }
+
+   // stor
+   const titleState = useTitle()
+   const { title } = titleState
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="~/assets/カワイクテゴメンネ.jpg" alt="touhou">
+    <img src="~/assets/img/カワイクテゴメンネ.jpg" alt="touhou">
     <!-- <p> {{ users[0].id }}, {{ users[0].name }}</p> -->
     <ul>
       <li v-for="user in users" :key="user.id">

@@ -30,16 +30,16 @@ const mouseOut = () => {
   return (state.item = state.tempValue)
 }
 
-const focusOver = (index: ScoreType) => {
-  state.tempValue = state.item
-  console.log('focusOver', state.item = index)
-  return (state.item = index)
-}
+// const focusOver = (index: ScoreType) => {
+//   state.tempValue = state.item
+//   console.log('focusOver', state.item = index)
+//   return (state.item = index)
+// }
 
-const focusOut = () => {
-  console.log('focusOut', state.item = state.tempValue)
-  return (state.item = state.tempValue)
-}
+// const focusOut = () => {
+//   console.log('focusOut', state.item = state.tempValue)
+//   return (state.item = state.tempValue)
+// }
 
 const setRating = (val: ScoreType) => {
   state.tempValue = val
@@ -52,6 +52,10 @@ const setRating = (val: ScoreType) => {
 
 <template>
   <div class="star-rating">
+    <!--
+      @focus="mouseOver(rating as ScoreType)"
+      @blur="mouseOut()"
+      -->
     <span 
       v-for="rating in state.rating" 
       :key="rating"
@@ -60,8 +64,6 @@ const setRating = (val: ScoreType) => {
       @click="setRating(rating as ScoreType)"
       @mouseover="mouseOver(rating as ScoreType)"
       @mouseout="mouseOut()"
-      @focus="mouseOver(rating as ScoreType)"
-      @blur="mouseOut()"
     >
       ★
     </span>
@@ -77,13 +79,17 @@ const setRating = (val: ScoreType) => {
   transition: color 0.2s;
 }
 
-.filled {
+.star.-selected {
   color: gold;
 }
 
-/* マウスオーバー時の星の色 */
+/* マウスオーバー時の星の色を左から右に変更 */
 .star:hover,
 .star:hover ~ .star {
   color: gold;
+}
+
+.star ~ .star:hover {
+  color: #ccc;
 }
 </style>

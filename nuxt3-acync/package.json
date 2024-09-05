@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "cross-env HOST=0.0.0.0 PORT=8000 nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -13,6 +13,11 @@
     "nuxt": "^3.2.3",
     "nuxt-swiper": "^1.2.2",
     "rm": "^0.1.8",
-    "swiper": "^11.1.9"
+    "swiper": "^11.1.9",
+    "vee-validate": "^4.13.2",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }

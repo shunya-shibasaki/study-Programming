@@ -13,6 +13,7 @@
     "nuxt": "^3.2.3",
     "nuxt-swiper": "^1.2.2",
     "rm": "^0.1.8",
+    "selenium-webdriver": "^4.24.1",
     "swiper": "^11.1.9",
     "vee-validate": "^4.13.2",
     "yup": "^1.4.0"

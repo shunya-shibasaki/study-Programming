@@ -9,9 +9,7 @@
     }"
   >
     <swiper-slide v-for="image in images" :key="image.id">
-      <div>
-        <img :src="image.src" :alt="'Image ' + image.id" />
-      </div>
+      <ImageComponent :height="calculatedHeight" :src="image.src" />
     </swiper-slide>
   </swiper>
   <div class="swiper-button-next"></div>
@@ -25,9 +23,16 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from 'swiper/modules';
 import { onMounted, ref } from 'vue'
 
+type Props = {
+  parentWidth: number
+}
+
 interface SwiperInstance {
   realIndex: number;
 }
+
+const props = defineProps<Props>()
+console.log('parentWidth---', props.parentWidth)
 
 //data
 const images = [
@@ -51,9 +56,14 @@ const images = [
 const emit = defineEmits(['updateComment'])
 
 const onSlideChange = (swiper: SwiperInstance) => {
+  console.log('Slide changed');
   const currentComment = images[swiper.realIndex].comment
   emit('updateComment', currentComment)
 }
+
+const calculatedHeight = computed(() => {
+  return Math.floor(props.parentWidth * (6 / 5));
+});
 
 onMounted(() => {
   emit('updateComment', images[0].comment)
@@ -61,14 +71,14 @@ onMounted(() => {
 </script>
 
 <style scoped>
-img {
-  width: 100%;
-  height: auto;
-}
-
 p {
   text-align: center;
   margin: 10px 0 0;
+}
+
+.swiper-slide {
+  overflow: hidden;
+  height: inherit;
 }
 
 .swiper-button-next,
